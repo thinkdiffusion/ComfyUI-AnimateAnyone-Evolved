@@ -6,7 +6,7 @@ import os, sys
 NODE_CLASS_MAPPINGS = {}
 NODE_DISPLAY_NAME_MAPPINGS = {}
 
-subprocess.run(['pip', 'install', '-r', 'requirements.txt']
+subprocess.run(['pip', 'install', '-r', 'requirements.txt'])
 
 nodes_filename = "nodes"
 module = importlib.import_module(f".{nodes_filename}", package=__name__)
