@@ -7,7 +7,7 @@ from typing import Callable, List, Optional, Union
 import comfy.utils
 
 import torch
-from diffusers import DiffusionPipeline, StableDiffusionPipeline
+from diffusers import DiffusionPipeline
 from diffusers.loaders import LoraLoaderMixin
 from diffusers.schedulers import (
     DDIMScheduler,
@@ -63,7 +63,7 @@ class AADiffusion(DiffusionPipeline, LoraLoaderMixin):
         self.load_lora_into_unet(
             state_dict,
             network_alphas=network_alphas,
-            unet=getattr(self, self.denoising_unet_name) if not hasattr(self, "unet") else self.denoising_unet,
+            unet=self.unet,
             low_cpu_mem_usage=low_cpu_mem_usage,
             adapter_name=adapter_name,
             _pipeline=self,
